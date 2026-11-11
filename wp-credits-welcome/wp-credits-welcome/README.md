@@ -1,4 +1,3 @@
-
 # WP Credits Welcome Plugin
 
 A simple WordPress plugin created for the WP Credits
