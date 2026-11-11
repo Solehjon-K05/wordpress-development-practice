@@ -2,8 +2,8 @@
 <?php
 /**
  * Plugin Name: WP Credits Welcome
- * Description: A simple welcome message plugin for WordPress.
- * Version: 1.0.0
+ * Description: A customizable welcome message plugin.
+ * Version: 1.1.0
  * Author: Solehjon Khuseynov
  */
 
@@ -11,8 +11,19 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-function wp_credits_welcome_message() {
-    return '<p>Welcome to my WordPress development project!</p>';
+function wp_credits_welcome_message( $atts ) {
+    $atts = shortcode_atts(
+        array(
+            'name' => 'Visitor',
+        ),
+        $atts,
+        'wp_credits_welcome'
+    );
+
+    $name = esc_html( $atts['name'] );
+
+    return '<p>Welcome, ' . $name . '! Thanks for visiting my website.</p>';
 }
 
 add_shortcode( 'wp_credits_welcome', 'wp_credits_welcome_message' );
+
